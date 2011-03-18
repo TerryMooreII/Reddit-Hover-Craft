@@ -1,6 +1,6 @@
 ## Description
 
-I got sick of click on links to view images that were posted to Reddit.com so I
+I got sick of clicking on links to view images that were posted to Reddit.com so I
 wrote this Google Chrome extension that will display the image in a popup dialog
 when you hover over the image link.
 
