@@ -1,0 +1,19 @@
+{
+  "name": "Reddit Hover Craft",
+	"description": "Displays images posted to Reddit.com when you hover over the url.",
+  "version": "1.3",
+  "options_page": "options.html",
+  "background_page": "background.html",
+  "permissions": [
+    "tabs", "http://www.reddit.com/*"
+  ],
+	"icons": { "16": "icon16.png", 
+		   "48": "icon48.png"},
+  "content_scripts": [
+    {
+      "matches": ["http://www.reddit.com/*"],
+      "css": [ "styles.css" ],
+      "js": [ "jquery.min.js", "imgpreview.full.jquery.js","main.js"]
+    }
+  ]
+}

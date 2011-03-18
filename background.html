@@ -1,0 +1,36 @@
+<html>
+  <head>
+  <script>
+		chrome.extension.onRequest.addListener(
+     function(request, sender, sendResponse)
+     {
+				if (request.msg === "getHeight" ){
+					var lHeight = localStorage["imgHeight"];
+					sendResponse({msg: lHeight});
+				}else 	if (request.msg === "getReWrite" ){
+					var reWriteUrl = localStorage["reWriteUrl"];
+					sendResponse({msg: reWriteUrl});				
+				}	else {				
+					sendResponse({});
+				}
+       
+     });
+  
+  </script>
+  </head>
+  <body>
+   <script>/*
+   var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-10368739-5']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = 'https://ssl.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();*/
+   </script>
+
+ </body>
+</html>
+

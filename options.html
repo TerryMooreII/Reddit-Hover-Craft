@@ -1,0 +1,103 @@
+<html>
+<head><title>Reddit Hover Craft Options</title></head>
+<style type="text/css">
+body{
+ padding:20px;
+}
+h1{
+  background-color:#6495ed;
+  padding-left:10px;
+}
+h3{
+  padding-left:10px;
+}
+
+p{
+  background-color:#e0ffff;
+  padding-left:10px;
+}
+#status{
+  height:20px;
+    padding-left:150px;
+}
+#footer{
+  font-size:12px;
+  padding-left:10px;
+}
+</style>
+
+<script type="text/javascript">
+
+function save_options() {
+  var height = document.getElementById("imgHeight").value;
+  window.localStorage.setItem("imgHeight", height);
+
+  var reWriteUrl = document.getElementById("reWriteUrl").checked;
+
+  window.localStorage.setItem("reWriteUrl", reWriteUrl)
+
+  var status = document.getElementById("status");
+  var w = window.localStorage.getItem("imgHeight");
+	var r = window.localStorage.getItem("reWriteUrl");
+  status.innerHTML = "***Options Saved.***";
+  setTimeout(function() {
+    status.innerHTML = "";
+  }, 1500);
+}
+
+function restore_options() {
+  //Image Height
+  var height = window.localStorage.getItem("imgHeight");
+  if (!height) {
+    document.getElementById('imgHeight').value = 400;
+  }else {
+    document.getElementById('imgHeight').value = height;
+  }
+
+  //ReWrite Urls	
+  var reWriteUrl = window.localStorage.getItem("reWriteUrl");
+  
+  if (!reWriteUrl) {
+    document.getElementById('reWriteUrl').checked = true;
+  }else{
+    document.getElementById('reWriteUrl').checked = toBool(reWriteUrl); 
+  }
+}
+
+function toBool(str){
+   if ("false" === str)
+      return false;
+   else 
+      return str;
+}
+</script>
+
+<body onload="restore_options()">
+
+<h1>
+	Reddit Hover Craft
+</h1>
+<h3>
+  Allows you hover over image links on Reddit.com to view the images.
+</h3>
+
+<p>
+  Set the height of the image when hovering over it:
+  <input id="imgHeight" name="imgHeight" type="input" size="7">px. (For orginal image size set to "full")
+  <br />
+
+  <input type="checkbox" name="reWriteUrl" id="reWriteUrl">
+  Re-write imgur urls to point to the image files instead of the imgur.com page?
+  <br/><br />
+  <button onclick="save_options()">Save</button>
+  <div id="status"></div>
+</p>
+
+
+<p id="footer">
+  Written By: <a href="http://motersho.com">Terry Moore</a>. <br />
+  Please send me an <a href="mailto:motersho@gmail.com">email</a> if you use this, like this, hate this, or find a bug <br />
+  Or <a href="http://www.twitter.com/motersho">follow me on Twitter</a>
+</p>
+</body>
+</html>
